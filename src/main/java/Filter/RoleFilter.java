@@ -20,14 +20,10 @@ public class RoleFilter implements Filter {
             User user = (User) req.getSession().getAttribute("user");
             String role = req.getSession().getAttribute("adminSession").toString();
             if (user == null) {
-                res.setContentType("text/html;charset=utf-8");
-                res.getWriter().println("Non-authorized");
                 req.getRequestDispatcher("/auth").forward(req, res);
             } else if (role.equals(req.getSession().getId())) {
                 filterChain.doFilter(req, res);
             } else {
-                res.setContentType("text/html;charset=utf-8");
-                res.getWriter().println("Access denied");
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/user");
                 dispatcher.forward(req, res);
             }
