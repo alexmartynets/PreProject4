@@ -13,20 +13,20 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/admin/edit"  method="post">
-    <input type = "hidden" name = "id" value = ${param.id}>
+    <input type = "hidden" name = "id" value = ${user.getId()}>
     <tr>
-        <th>Login</th> <td><input type = "text" name = "login" value = ${param.login}></td>
+        <th>Login</th> <td><input type = "text" name = "login" value = ${user.getLogin()}></td>
     </tr>
     <tr>
-        <th>Password</th> <td><input type = "text" name = "password" value = ${param.password}></td>
+        <th>Password</th> <td><input type = "text" name = "password" value = ${user.getPassword()}></td>
     </tr>
     <tr>
-        <th>Name</th> <td><input type = "text" name = "name" value = ${param.name}></td>
+        <th>Name</th> <td><input type = "text" name = "name" value = ${user.getName()}></td>
     </tr>
 
     <tr>
     <p><select name="role" required>
-        <option></option>
+        <option>${user.getRole()}</option>
         <option>admin</option>
         <option>user</option>
     </select></p>

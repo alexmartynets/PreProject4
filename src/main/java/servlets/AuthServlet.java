@@ -29,8 +29,7 @@ public class AuthServlet extends HttpServlet {
                             .equals(req.getSession(false).getId())) {
                 resp.sendRedirect("/user");
             } else {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/auth.jsp");
-                dispatcher.forward(req, resp);
+                resp.sendRedirect("/auth");
             }
         } catch (NullPointerException e) {
             resp.sendRedirect("/auth.jsp");
@@ -64,7 +63,7 @@ public class AuthServlet extends HttpServlet {
                 resp.sendRedirect("/user");
             }
         } else {
-            resp.sendRedirect("/index.jsp");
+            resp.sendRedirect("/");
         }
     }
 }

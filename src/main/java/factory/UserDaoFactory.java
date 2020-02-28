@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class UserDaoFactory {
+public class UserDaoFactory implements DaoFactory {
     public UserDAO getQLForDAO() {
         Properties properties = new Properties();
         try {

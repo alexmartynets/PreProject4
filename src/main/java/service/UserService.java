@@ -9,7 +9,7 @@ import utils.DBHelper;
 import java.sql.SQLException;
 import java.util.List;
 
-public class UserService {
+public class UserService implements Service {
     private static UserService instance;
     private UserService() {}
 

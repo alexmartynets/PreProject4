@@ -20,6 +20,11 @@ public class EditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            request.setAttribute("user", userService.getUserById(id));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/editUser.jsp");
         dispatcher.forward(request, response);
     }
@@ -42,6 +47,6 @@ public class EditServlet extends HttpServlet {
         user.setName(request.getParameter("name"));
         user.setRole(request.getParameter("role"));
         userService.updateUser(user);
-        request.getRequestDispatcher("/admin/list").forward(request, response);
+        response.sendRedirect("/admin/list");
     }
 }

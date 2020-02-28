@@ -42,6 +42,6 @@ public class DeleteServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("/admin/list").forward(request, response);
+        response.sendRedirect("/admin/list");
     }
 }
